@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <p><strong>Rock Paper Scissors</strong></p>
+    <!-- Creating Buttons for Rock,Paper and Scissors -->
+    <button
+      onclick="
+      playGame('Rock');
+    "
+    >
+      Rock
+    </button>
+    <button
+      onclick="
+      playGame('Paper');
+    "
+    >
+      Paper
+    </button>
+    <button
+      onclick="
+    playGame('Scissors');
+    "
+    >
+      Scissors
+    </button>
+    <script>
+      // Generating random numbers with Math.random and using if statement to decide which numbers will be converted to Rock, Paper, Scissors for computer
+      function pickComputerMove() {
+        const randomNumber = Math.random();
+
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          computerMove = "Rock";
+        } else if (randomNumber >= 0.3 && randomNumber < 2 / 3) {
+          computerMove = "Paper";
+        } else if (randomNumber < 1 && randomNumber < 3 / 3) {
+          computerMove = "Scissors";
+        }
+        return computerMove;
+      }
+
+      // Creating function for player selections
+      function playGame(playerMove) {
+        const computerMove = pickComputerMove();
+
+        let result = "";
+        // Creating results for Rock, Paper, Scissors
+        if (playerMove === "Scissors") {
+          if (computerMove === "Scissors") {
+            result = "Tie.";
+          } else if (computerMove === "Rock") {
+            result = "You lose.";
+          } else if (computerMove === "Paper") {
+            result = "You win!";
+          }
+        } else if (playerMove === "Paper") {
+          if (computerMove === "Paper") {
+            result = "Tie.";
+          } else if (computerMove === "Scissors") {
+            result = "You lose.";
+          } else if (computerMove === "Rock") {
+            result = "You win!";
+          }
+        } else if (playerMove === "Rock") {
+          if (computerMove === "Rock") {
+            result = "Tie.";
+          } else if (computerMove === "Paper") {
+            result = "You lose.";
+          } else if (computerMove === "Scissors") {
+            result = "You win!";
+          }
+        }
+
+        // Printing result with alert function
+        alert(
+          `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`
+        );
+      }
+    </script>
+    <footer>
+      <p>
+        <a href="https://github.com/ainsworth35/rockpaperscissors"
+          >ainsworth35</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
